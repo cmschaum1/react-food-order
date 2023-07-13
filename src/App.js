@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+
+import Header from "./components/Layout/Header";
 
 const App = () => {
-
   return (
-    <div>
-
-    </div>
+    <React.Fragment>
+      <Header />
+    </React.Fragment>
   );
-}
+};
 
 export default App;
