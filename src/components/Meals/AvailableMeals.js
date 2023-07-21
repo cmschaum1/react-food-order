@@ -9,6 +9,7 @@ import MealItem from "./MealItem/MealItem";
 const DUMMY_MEALS = [
   {
     id: "m1",
+    key: "m1",
     name: "Sushi",
     description: "Finest fish and veggies",
     price: 22.99,
@@ -35,7 +36,11 @@ const DUMMY_MEALS = [
 // fake meals - end
 
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => <MealItem meal={meal}/>);
+  const mealsList = DUMMY_MEALS.map((meal) =>(
+    <MealItem 
+      key={meal.id} // must be here on main Meal Item element, not on the returned list item
+      meal={meal}
+    />));
 
   return (
     <section className={styles.meals}>
