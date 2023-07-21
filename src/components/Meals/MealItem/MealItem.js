@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import MealItemForm from "./MealItemForm";
+import CartContext from "../../../atore/cart-context";
 
 import styles from "./MealItem.module.css";
 
 const MealItem = (props) => {
+  const cartCtx = useContext(CartContext);
+
   const price = `$${props.meal.price.toFixed(2)}`;
+
+  const addItem = (amount) => {
+    cartCtx.addItem( {
+      ...props.meal,
+      amount: amount
+    })
+  };
+  
   return (
-    <li key={props.id} className={styles.meal}>
+    <li className={styles.meal}>
       <div>
         <h3>{props.meal.name}</h3>
         <div className={styles.description}>{props.meal.description}</div>
         <div className={styles.price}>{price}</div>
       </div>
       <div>
-        <MealItemForm />
+        <MealItemForm id = {props.meal.id} onAddToCart = {addItem}/>
       </div>
     </li>
   );
