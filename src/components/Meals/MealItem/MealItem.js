@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import MealItemForm from "./MealItemForm";
-import CartContext from "../../../atore/cart-context";
+import CartContext from "../../../store/cart-context";
 
 import styles from "./MealItem.module.css";
 
